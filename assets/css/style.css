@@ -12,4 +12,14 @@ h1 {
 p {
     color: white;
 }
+#submit {
+    background-color: red;
+}
+#start {
+    background-color: red;
+    padding: 10px;
 
+}
+#sticky-footer {
+    position: fixed;
+}
