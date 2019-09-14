@@ -2,36 +2,36 @@
 
 var triviaQuestions = [{
     question:"Who is the youngest driver on the 2019 grid?",
-    answerList:["Lando Norris", "Charles Leclerc", "Max Verstappen", "George Russell"],
-    correctAnswer: "Max Verstappen",
+    answerList:[" Lando Norris", " Charles Leclerc", " Max Verstappen", " George Russell"],
+    correctAnswer: " Max Verstappen",
 },  {
     question:"How many WDC's has Lewis Hamilton won?",
-    answerList:["7", "5", "10", "3"],
-    correctAnswer: "5",
+    answerList:[" 7", " 5", " 10", " 3"],
+    correctAnswer: " 5",
 },  {
     question:"Which year did Scuderia Ferrari begin competing in F1?",
-    answerList:["1920", "1930", "1950", "1970"],
-    correctAnswer: "1950",
+    answerList:[" 1920", " 1930", " 1950", " 1970"],
+    correctAnswer: " 1950",
 },  {
     question:"Which driver holds the record for most wins at the Monaco Grand Prix?",
-    answerList:["Ayerton Senna", "Michael Schumacher", "Lewis Hamilton", "Niki Lauda"],
-    correctAnswer: "Ayerton Senna",
+    answerList:[" Ayerton Senna", " Michael Schumacher", " Lewis Hamilton", " Niki Lauda"],
+    correctAnswer: " Ayerton Senna",
 },  {
     question:"Which circuit on the 2019 calendar is the newest?",
-    answerList:["Baku City Circuit", "Circuit of the Americas", "Yas Marina Circuit", "Bahrain International Circuit"],
-    correctAnswer: "Baku City Circuit",
+    answerList:[" Baku City Circuit", " Circuit of the Americas", " Yas Marina Circuit", " Bahrain International Circuit"],
+    correctAnswer: " Baku City Circuit",
 },  {
     question:"What does a blue flag being waved at a driver mean?",
-    answerList: ["Race Stopped", "Proceed with Caution", "Final Lap", "Lapped Traffic"],
-    correctAnswer: "Lapped Traffic",
+    answerList: [" Race Stopped", " Proceed with Caution", " Final Lap", " Lapped Traffic"],
+    correctAnswer: " Lapped Traffic",
 },  {
     question:"Which manufacturer is the only tire manufacturer on the 2019 grid?",
-    answerList:["Bridgestone", "Michelin", "Hankook", "Pirelli"],
-    correctAnswer: "Pirelli",
+    answerList:[" Bridgestone", " Michelin", " Hankook", " Pirelli"],
+    correctAnswer: " Pirelli",
 },  {
     question:"How many races are on the 2019 calendar?",
-    answerList:["21", "15", "23", "17"],
-    correctAnswer: "21",
+    answerList:[" 21", " 15", " 23", " 17"],
+    correctAnswer: " 21",
 }]
 
 // Click event to start the game
@@ -64,7 +64,7 @@ var triviaGame = {
             }
         }
         // Submit button
-        $("#display").append('<button id="submit">Submit</button>')
+        $("#display").append('<br><br><a class="btn btn-primary" href="#" id="submit" role="button">Submit</a>')
     },
 
     // Timer countdown function
@@ -127,17 +127,23 @@ var triviaGame = {
                 triviaGame.wrong++;
             }
         });
+        $.each($("input[name = 'question 7']:checked"), function(){
+            if($(this).val() == triviaQuestions[7].correctAnswer){
+                triviaGame.right++;
+            } else {
+                triviaGame.wrong++;
+            }
+        });
 
         this.result()
     },
-    
+
 // Display results after game is finished
 
     result: function(){
         clearInterval(timer);
         $("#display h2").remove();
-
-        $("#display").html("<h2>All Over!</h2>");
+        $("#display").html("<h2><strong>You've reached the checkered flag!</strong></h2>");
         $("#display").append("<h3>Right Answers: " + this.right + "</h3>");
         $("#display").append("<h3>Wrong Answers: " + this.wrong + "</h3>");
         $("#display").append("<h3>Unanswered: " + (triviaQuestions.length-(this.wrong + this.right)) + "</h3>");

@@ -1,0 +1,15 @@
+body {
+    font-family: 'Saira Semi Condensed', sans-serif;
+    background-image: url(./bg.jpg)
+}
+#wrapper {
+    background-color: white;
+    padding: 20px;
+}
+h1 {
+    color: white;
+}
+p {
+    color: white;
+}
+
